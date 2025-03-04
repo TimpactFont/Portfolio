@@ -82,9 +82,9 @@
             border-width: 4px;
             border-color: blue;
         }
-        @media (max-width: 768px) { /* Adjusts for screens smaller than 768px (common breakpoint for tablets & mobiles) */
+        @media (max-width: 768px) {
             img {
-                width: 200px; /* Sets width to 200px on smaller screens */
+                width: 200px;
             }
             h1 {
                 font-size: 36px;
@@ -161,24 +161,17 @@
             margin-bottom: 10px;
             text-align: center;
         }
-                /* Scrollbar width */
         ::-webkit-scrollbar {
-            width: 10px; /* Adjust scrollbar width */
+            width: 10px;
         }
-
-        /* Track (background) */
         ::-webkit-scrollbar-track {
-            background: blue; /* Light gray background */
+            background: blue;
         }
-
-        /* Handle (scroll thumb) */
         ::-webkit-scrollbar-thumb {
-            background: white; /* Scrollbar color */
+            background: white;
         }
-
-        /* Handle on hover */
         ::-webkit-scrollbar-thumb:hover {
-            background: lightgrey; /* Changes color on hover */
+            background: lightgrey;
         }
       </style>
 </head>
@@ -439,22 +432,19 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         var coll = document.querySelectorAll(".collapsible");
-
         coll.forEach(function (button) {
             button.addEventListener("click", function () {
-                var content = this.parentElement.querySelector(".content"); // Ensure we select the correct content div
+                var content = this.parentElement.querySelector(".content");
                 this.classList.toggle("active");
                 content.style.display = content.style.display === "block" ? "none" : "block";
             });
         });
-
         var closeButtons = document.querySelectorAll(".close-btn");
-
         closeButtons.forEach(function (btn) {
             btn.addEventListener("click", function () {
                 var content = this.parentElement;
                 content.style.display = "none";
-                content.previousElementSibling.classList.remove("active"); // Remove active state from button
+                content.previousElementSibling.classList.remove("active");
             });
         });
     });
