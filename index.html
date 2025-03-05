@@ -153,7 +153,7 @@
             margin-bottom: 10pt;
         }
         .katakana {
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: Helvetica, sans-serif;
             font-weight: bold;
             font-size: 24px;
             margin-bottom: 10px;
@@ -171,7 +171,25 @@
         ::-webkit-scrollbar-thumb:hover {
             background: lightgrey;
         }
-      </style>
+        #datetime {
+            position: fixed;
+            bottom: 10px;
+            background: white;
+            padding: 10px 20px;
+            font-family: monospace;
+            font-size: 20px;
+            letter-spacing: 2px;
+            text-align: center;
+            border: 2px solid black;
+        }
+        #datetime:hover {
+            border: 2px solid blue;
+            color: blue;
+        }
+        #date, #time {
+            display: block;
+        }
+    </style>
 </head>
 <body>
   <header>
@@ -423,8 +441,12 @@
   </main>
   <footer>
     <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: TimpactFont@gmail.com</p>
+        <h2>Contact</h2>
+        <p>Email: TimpactFont@gmail.com</p>
+        <div id="datetime">
+            <div id="time"></div>
+            <div id="date"></div>
+        </div>
     </section>
   </footer>
 <script>
@@ -446,6 +468,20 @@
             });
         });
     });
+    function updateDateTime() {
+        const now = new Date();
+        let month = (now.getMonth() + 1).toString().padStart(2, '0');
+        let day = now.getDate().toString().padStart(2, '0');
+        let year = now.getFullYear();
+        let hours = now.getHours().toString().padStart(2, '0');
+        let minutes = now.getMinutes().toString().padStart(2, '0');
+        let seconds = now.getSeconds().toString().padStart(2, '0');
+        document.getElementById('date').textContent = `${month}/${day}/${year}`;
+        document.getElementById('time').textContent = `${hours}:${minutes}:${seconds}`;
+    }
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+</script>
 </script>
 </body>
 </html>
