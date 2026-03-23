@@ -112,6 +112,21 @@
             text-decoration: underline;
             text-decoration-color: gray;
         }
+        .collapsible.subtle {
+            cursor: pointer;
+            margin-left: auto;
+            margin-right: auto;
+            width: auto;
+            border: none;
+            text-align: center;
+            outline: none;
+            font-family: "Courier New", Courier, monospace;
+            text-decoration: underline;
+            color: black;
+            text-decoration-color: black;
+            font-size: 16px;
+            font-weight: bold;
+        }
         .collapsible:hover {
             color: blue;
             text-decoration-color: blue;
@@ -125,7 +140,6 @@
         .close-btn {
             background-color: white;
             font-size: 14px;
-            color: gray;
             margin: auto;
             cursor: pointer;
             width: auto;
@@ -224,6 +238,13 @@
             text-transform: uppercase;
             font-weight: bold;
         }
+        iframe {
+            width: 33%;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 10pt;
+        }
     </style>
 </head>
 <body>
@@ -299,9 +320,10 @@
             </section>
         <section id="case studies">
             <h2>Case Studies</h2>
-            <button class="collapsible"><p class="description">X images</p></button>
+            <button class="collapsible"><p class="description">X Projects</p></button>
             <div class="content">
-                <h3 class="sub">Bilingual Type Design</h3>
+                <button class="collapsible subtle"><h3 class="sub">Bilingual Type Design</h3></button>
+                    <div class="content">
                     <h4 class="sub">Project Overview</h4>
                         <p class="caption-justify">For this project, my task was to take a word from a foreign language that doesn't have a direct translation in English and design a booklet for it. 
                             Out of the words I could choose, I decided to use the Japanese word "Komorebi". 
@@ -309,8 +331,7 @@
                             I had a lot of enjoyment studying the word and designing my spreads. I felt like having access to another language allowed for more creativity within the design. 
                             Since I'm also learning Japanese, I was able to apply some of the bits of knowledge I have about the language to this project.
                             I tried to make a Japanese inspired booklet that uses Japanese bookbinding and watercolor paper as the cover pages. 
-                            I incorporated yellow into the book's visuals to mimic the idea of sunlight.
-                        </p>
+                            I incorporated yellow into the book's visuals to mimic the idea of sunlight.</p>
                     <h4 class="sub">Sketches</h4>
                         <a href="https://lh3.googleusercontent.com/d/1TgF_Ov8niq-5wRli88aVHkihZ5useccP=s1280?authuser=0" target="_blank">
                             <img src="https://lh3.googleusercontent.com/d/1TgF_Ov8niq-5wRli88aVHkihZ5useccP=s1280?authuser=0"/></a>
@@ -357,7 +378,38 @@
                         <a href="https://lh3.googleusercontent.com/d/1CxBNmG-Rbu3I0kxW3N0lnKZ7yz-DpVod=s1280?authuser=0" target="_blank">
                             <img src="https://lh3.googleusercontent.com/d/1CxBNmG-Rbu3I0kxW3N0lnKZ7yz-DpVod=s1280?authuser=0"/></a>
                             <p class="caption">Caption</p>
-                    <button class="close-btn"><p class="description">Close</p></button>
+                        <button class="close-btn"><p class="description">Close</p></button>
+                    </div>
+                <button class="collapsible subtle"><h3 class="sub">Community Branding</h3></button>
+                <div class="content">
+                    <h4 class="sub">Project Overview</h4>
+                        <p class="caption-justify">For this project, I was tasked with designing a brand</p>
+                    <h4 class="sub">Moodboard</h4>
+                    <a href="https://lh3.googleusercontent.com/d/15pauIVj1amLkCEtrnKfGvn3WaZtug0tx=s1280?authuser=0" target="_blank">
+                        <img src="https://lh3.googleusercontent.com/d/15pauIVj1amLkCEtrnKfGvn3WaZtug0tx=s1280?authuser=0"/></a>
+                        <p class="caption">Caption</p>
+                    <h4 class="sub">Sketches</h4>
+                        <a href="https://lh3.googleusercontent.com/d/1rlXzqJtzN2CLqbwKkW_Wkx_9rSWsvR_t=s1280?authuser=0" target="_blank">
+                            <img src="https://lh3.googleusercontent.com/d/1rlXzqJtzN2CLqbwKkW_Wkx_9rSWsvR_t=s1280?authuser=0"/></a>
+                        <a href="https://lh3.googleusercontent.com/d/1QCJgPE6brEM_WL1hLghiEkgUNZC0Z6eH=s1280?authuser=0" target="_blank">
+                            <img src="https://lh3.googleusercontent.com/d/1QCJgPE6brEM_WL1hLghiEkgUNZC0Z6eH=s1280?authuser=0"/></a>
+                            <p class="caption">Caption</p>
+                    <h4 class="sub">Initial Drafts</h4>
+                        <a href="https://lh3.googleusercontent.com/d/1U6xRhUqNn_jfZHG5m3vFNfuTTOD8RZyp=s1280?authuser=0" target="_blank">
+                            <img src="https://lh3.googleusercontent.com/d/1U6xRhUqNn_jfZHG5m3vFNfuTTOD8RZyp=s1280?authuser=0"/></a>
+                        <a href="https://lh3.googleusercontent.com/d/1OGdpSESqdnTgg1FNHdfOhpWJnLx5QcnX=s1280?authuser=0" target="_blank">
+                            <img src="https://lh3.googleusercontent.com/d/1OGdpSESqdnTgg1FNHdfOhpWJnLx5QcnX=s1280?authuser=0"/></a>
+                            <p class="caption">Caption</p>
+                    <h4 class="sub">Final Solution and Style Guide</h4>
+                        <iframe 
+                            src="https://raw.githubusercontent.com/TimpactFont/portfolio/Files for Website/assets/BrandGuidelinesLilyPad.pdf"
+                            width="33%" 
+                            height="auto"
+                            style="border: none;">
+                        </iframe>
+                            <p class="caption">Caption</p>
+                <button class="close-btn"><p class="description">Close</p></button>
+                </div>
                 </div>
             </section>
         <section id="logos">
@@ -509,11 +561,13 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         var coll = document.querySelectorAll(".collapsible");
+
         coll.forEach(function (button) {
             button.addEventListener("click", function () {
-                var content = this.parentElement.querySelector(".content");
+                var content = this.nextElementSibling;
                 this.classList.toggle("active");
-                content.style.display = content.style.display === "block" ? "none" : "block";
+                content.style.display =
+                    content.style.display === "block" ? "none" : "block";
             });
         });
         var closeButtons = document.querySelectorAll(".close-btn");
@@ -521,7 +575,10 @@
             btn.addEventListener("click", function () {
                 var content = this.parentElement;
                 content.style.display = "none";
-                content.previousElementSibling.classList.remove("active");
+                var button = content.previousElementSibling;
+                if (button) {
+                    button.classList.remove("active");
+                }
             });
         });
     });
@@ -538,7 +595,6 @@
     }
     setInterval(updateDateTime, 1000);
     updateDateTime();
-</script>
 </script>
 </body>
 </html>
