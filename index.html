@@ -6,256 +6,308 @@
     <title>TimpactFont</title>
     <link id="favicon-light" rel="icon" media="(prefers-color-scheme: light)" href="/favicon/faviconlight.png">
     <link id="favicon-dark" rel="icon" media="(prefers-color-scheme: dark)" href="/favicon/favicondark.png">
-    <style>
-        style, title, script {
-            display: none;
-        }
-        html {
-            overflow-y: scroll;
-        }
-        body {
-            font-family: "Courier New", Courier, monospace;
-            background-color: white;
-            color: black;
-            margin: 0;
-            padding-left: 20px;
-            padding-right: 65px;
-            padding-bottom: 20px;
-            padding-top: 10px;
-        }
-        * {
-            display: block;
-            margin: 0;
-            padding: 0;
-        }
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        h1 {
-            font-weight: bold;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 60px;
-            text-transform: uppercase;
-            text-align: center;
-        }
-        h2 {
-            font-family: Arial, Helvetica, sans-serif;
-            text-transform: uppercase;
+<style>
+    * {
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
 
+    style, title, script, head {
+        display: none;
+    }
+
+    html {
+        overflow-y: scroll;
+    }
+
+    body {
+        font-family: "Courier New", Courier, monospace;
+        background-color: white;
+        color: black;
+        margin: 0;
+        padding: 10px 65px 20px 20px;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 60px;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    h2 {
+        font-family: Arial, Helvetica, sans-serif;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    a {
+        display: block;
+        color: black;
+        text-decoration-color: black;
+        margin: 0 auto 10px;
+    }
+
+    a:hover {
+        color: blue;
+        text-decoration-color: blue;
+    }
+
+    p {
+        margin-bottom: 10px;
+    }
+
+    footer {
+        display: block;
+    }
+
+    section {
+        border-top: 1px solid black;
+        padding-top: 10px;
+        margin-top: 10px;
+    }
+
+    img {
+    width: 75%;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto 10px;
+    border: 4px solid black;
+    box-sizing: border-box;
+    }
+
+    img.portrait {
+        width: 50%;
+    }
+
+    iframe {
+        width: 75%;
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto 10px;
+        border: 4px solid black;
+        box-sizing: border-box;
+    }
+
+    .image-row {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        width: 75%;
+        margin: 0 auto 10px;
+        gap: 10px;
+    }
+
+    .image-row img {
+        display: block;
+        flex: none;
+        width: auto !important;
+        max-width: calc((100% - 10px) / 2);
+        height: var(--paired-height, auto) !important;
+        margin: 0;
+        border: 4px solid black;
+        box-sizing: border-box;
+    }
+
+    .collapsible {
+        background-color: white;
+        font-size: 14px;
+        margin-left: auto;
+        margin-right: auto;
+        color: gray;
+        cursor: pointer;
+        width: auto;
+        border: none;
+        text-align: center;
+        outline: none;
+        font-family: "Courier New", Courier, monospace;
+        text-decoration: underline;
+        text-decoration-color: gray;
+    }
+
+    .collapsible.subtle {
+        cursor: pointer;
+        margin-left: auto;
+        margin-right: auto;
+        width: auto;
+        border: none;
+        text-align: center;
+        outline: none;
+        font-family: "Courier New", Courier, monospace;
+        text-decoration: underline;
+        color: black;
+        text-decoration-color: black;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .collapsible:hover {
+        color: blue;
+        text-decoration-color: blue;
+    }
+
+    .content {
+        padding: 10px;
+        display: none;
+        overflow: hidden;
+        background-color: white;
+    }
+
+    .close-btn {
+        background-color: white;
+        font-size: 14px;
+        margin: auto;
+        cursor: pointer;
+        width: auto;
+        border: none;
+        text-align: center;
+        outline: none;
+        font-family: "Courier New", Courier, monospace;
+        text-decoration: underline;
+        text-decoration-color: gray;
+    }
+
+    .close-btn:hover {
+        color: blue;
+        text-decoration-color: blue;
+    }
+
+    .caption,
+    .caption-justify {
+        max-width: 50%;
+        margin: 5px auto 25px;
+        font-size: 12px;
+        color: black;
+    }
+
+    .caption {
+        text-align: center;
+    }
+
+    .caption-justify {
+        text-align: left;
+        line-height: 1.6;
+    }
+
+    .sub {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .katakana {
+        font-family: Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 24px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: blue;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: white;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: lightgrey;
+    }
+
+    #datetime {
+        position: fixed;
+        bottom: 20px;
+        right: 65px;
+        background: white;
+        padding: 10px 20px;
+        font-family: monospace;
+        font-size: 20px;
+        letter-spacing: 2px;
+        text-align: center;
+        border: 2px solid black;
+        width: 140px;
+    }
+
+    #date, #time {
+        display: block;
+    }
+
+    nav {
+        position: fixed;
+        bottom: 100px;
+        right: 65px;
+        background: white;
+        padding: 10px 20px;
+        text-align: left;
+        border: 2px solid black;
+        width: 140px;
+    }
+
+    nav a {
+        text-decoration: underline;
+        color: grey;
+        font-size: 12px;
+        font-family: "Courier New", Courier, monospace;
+    }
+
+    nav a:hover {
+        color: blue;
+    }
+
+    .contact {
+        font-size: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+        body {
+            padding: 10px 20px 20px;
         }
-        a {
-            display: block;
-            color: black;
-            text-decoration-color: black;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 10px;
+
+        h1 {
+            font-size: 36px;
         }
-        a:hover {
-            color: blue;
-            text-decoration-color: blue;
-        }
-        p {
-            margin-bottom: 10px;
-        }
-        footer {
-            display: block;
-        }
-        section {
-            border-top: 1px solid #000;
-            padding-top: 10px;
-            margin-top: 10px;
-        }
-        img {
-            width: 33%;
-            max-width: 100%;
-            height: auto;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 10px;
-            border-style: solid;
-            border-width: 4px;
-            border-color: black;
-        }
-        iframe {
-            width: 33%;
-            max-width: 100%;
-            height: 300px;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 10px;
-            border-style: solid;
-            border-width: 4px;
-            border-color: black;
-        }
-        @media (max-width: 768px) {
-            img {
-                width: 200px;
-            }
-            h1 {
-                font-size: 36px;
-            }
-            marquee, #datetime, nav {
-                display: none;
-            }
-            body {
-                padding-left: 20px;
-                padding-right: 20px;
-                padding-bottom: 20px;
-                padding-top: 10px;
-            }
-            .caption-justify {
-            width: 200px;
-            margin-top: 5px;
-            margin-bottom: 25px;
-            margin-left: auto;
-            margin-right: auto;
-            font-size: 12px;
-            text-align: left;
-            color: black;
-            }
-        }
-        .collapsible {
-            background-color: white;
-            font-size: 14px;
-            color: gray;
-            cursor: pointer;
-            width: auto;
-            border: none;
-            text-align: left;
-            outline: none;
-            font-family: "Courier New", Courier, monospace;
-            text-decoration: underline;
-            text-decoration-color: gray;
-        }
-        .collapsible.subtle {
-            cursor: pointer;
-            margin-left: auto;
-            margin-right: auto;
-            width: auto;
-            border: none;
-            text-align: center;
-            outline: none;
-            font-family: "Courier New", Courier, monospace;
-            text-decoration: underline;
-            color: black;
-            text-decoration-color: black;
-            font-size: 16px;
-            font-weight: bold;
-        }
-        .collapsible:hover {
-            color: blue;
-            text-decoration-color: blue;
-        }
-        .content {
-            padding: 10px;
+
+        marquee, #datetime, nav {
             display: none;
-            overflow: hidden;
-            background-color: white;
         }
-        .close-btn {
-            background-color: white;
-            font-size: 14px;
-            margin: auto;
-            cursor: pointer;
-            width: auto;
-            border: none;
-            text-align: left;
-            outline: none;
-            font-family: "Courier New", Courier, monospace;
-            text-decoration: underline;
-            text-decoration-color: gray;
+
+        img, img.portrait, iframe {
+            width: 100%;
+            max-width: 100%;
         }
-        .close-btn:hover {
-            color: blue;
-            text-decoration-color: blue;
+
+        .image-row {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
         }
-        .caption {
-            max-width: 33%;
-            margin-top: 5px;
-            margin-bottom: 25px;
-            margin-left: auto;
-            margin-right: auto;
-            font-size: 12px;
-            text-align: center;
-            color: black;
+
+        .image-row img {
+            width: 100% !important;
+            max-width: 100%;
+            height: auto !important;
+            margin: 0;
         }
-        .caption-justify {
-            max-width: 33%;
-            margin-top: 5px;
-            margin-bottom: 25px;
-            margin-left: auto;
-            margin-right: auto;
-            font-size: 12px;
-            text-align: left;
-            color: black;
+
+        .caption, .caption-justify {
+            width: 100%;
+            max-width: 100%;
         }
-        .sub {
-            text-align: center;
-            margin-bottom: 10px;
-        }
-        .katakana {
-            font-family: Helvetica, sans-serif;
-            font-weight: bold;
-            font-size: 24px;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: blue;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: white;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: lightgrey;
-        }
-        #datetime {
-            position: fixed;
-            bottom: 20px;
-            right: 65px;
-            background: white;
-            padding: 10px 20px;
-            font-family: monospace;
-            font-size: 20px;
-            letter-spacing: 2px;
-            text-align: center;
-            border: 2px solid black;
-            width: 140px;
-        }
-        #date, #time {
-            display: block;
-        }
-        nav {
-            position: fixed;
-            bottom: 100px;
-            right: 65px;
-            background: white;
-            padding: 10px 20px;
-            text-align: left;
-            border: 2px solid black;
-            width: 140px;
-        }
-        nav a {
-            text-decoration: underline;
-            color: grey;
-            font-size: 12px;
-            font-family: 'Courier New', Courier, monospace;
-        }
-        nav a:hover {
-            color: blue;
-        }
-        .contact {
-            font-size: 10px;
-            font-family: Arial, Helvetica, sans-serif;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
     <header>
@@ -269,514 +321,580 @@
             <p class="katakana" style="font-size: 12px;">ティンパクトフォント&copy;</p>
             </marquee>
         <section id="Emerging Tech">
-            <h2>Emerging Technology Case Study</h2>
-            <button class="collapsible"><p class="description">Click to View</p></button>
+            <h2>Soft Robotics Microsite</h2>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Soft Robotics/iMac_Mockup_1.jpg"
+                style="width: 50%; height: auto;"/>
+            <button class="collapsible" type="button"><p class="description">View Design Process</p></button>
             <div class="content">
-                <button class="collapsible subtle"><h3 class="sub">Soft Robotics Technology Library</h3></button>
-                <div class="content">
-                    <button class="collapsible subtle"><h4 class="sub">Project Overview</h4></button>
-                    <div class="content">
-                        <p class="caption-justify">For this part of the project, me and my two team members were tasked with creating a library of information about an emerging technology. 
-                            This library would also be used and built upon for my group's other projects later on in the class.
-                            My group was assigned the field of soft robotics and wearable technology, and we decided to make our library a website within Figma. 
-                            Our primary goal for this project was to make our library navigable and understandable for someone that isn't familiar with soft robotics all while making the project portfolio-worthy. 
-                            This was particularly difficult because we didn't fully understand soft robotics ourselves; however, I would say that we succeeded in our goal.</p>
-                        <button class="close-btn"><p class="description">Close</p></button>
-                        </div>
-                    <button class="collapsible subtle"><h4 class="sub">FigJam Process Work</h4></button>
-                    <div class="content">
-                        <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Process/Progress_01.png" />
-                        <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Process/Progress_02.png" />
-                        <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Process/Progress_03.png" />
-                        <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Process/Progress_04.png" />
-                        <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Process/Progress_05.png" />
-                        <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Process/Progress_06.png" />
-                        <p class="caption">These are screenshots of the process of our FigJam we made before we started making our website. 
-                            We separated the work amongst the three of us. 
-                            I researched the how soft robotics works, its timeline, its ecosystem map, its cultural and environmental impact, the legality of soft robotics, and its unexpected uses. 
-                            By making this FigJam, we were able to efficiently extract information from reliable sources on the internet while creating the organization and potential design language of our website over the course of a week. 
-                            This FigJam assisted in our workflow and allowed us to set a proper foundation to build our project on top of.</p>
-                        <button class="close-btn"><p class="description">Close</p></button>
-                        </div>
-                    <button class="collapsible subtle"><h4 class="sub">Website Process Work</h4></button>
-                    <div class="content">
-                        <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Process/Progress_07.png" />
-                        <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Process/Progress_08.png" />
-                        <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Process/Progress_09.png" />
-                        <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Process/Progress_10.png" />
-                        <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Process/Progress_11.png" />
-                        <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Process/Progress_12.png" />
-                        <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Process/Progress_13.png" />
-                        <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Process/Progress_14.png" />
-                        <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Process/Progress_15.png" />
-                        <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Process/Progress_16.png" />
-                        <p class="caption">These are screenshots of the process of our website. 
-                            For our design language, we made a moodboard in our FigJam that consisted of technology adjacent aesthetics and designs that we used for inspiration. 
-                            Due to the fact that we were researching soft robotics, we felt that it would be fitting to use technology-adjacent aesthetics in our design language. 
-                            Our color palette was inspired by the octobot, an autonomous soft robot that glows pink and blue in the dark. 
-                            We settled on the typeface Almarai for our website after a process of elimination with other typefaces we selected.</p>
-                        <button class="close-btn"><p class="description">Close</p></button>
-                        </div>
-                    <button class="collapsible subtle"><h4 class="sub">Website</h4></button>
-                    <div class="content">
-                        <iframe src="https://embed.figma.com/site/bD03dObhQw8lNW6IW75YTM/Soft-Robotics-and-Responsive-Wearable-tech-Microsite?node-id=0-1&embed-host=share" allowfullscreen></iframe>
-                        <h5 class="sub"><a href="https://www.figma.com/site/bD03dObhQw8lNW6IW75YTM/Soft-Robotics-and-Responsive-Wearable-tech-Microsite?node-id=76-654&t=jMxNCiD3HrQ0JKoU-1" target="_blank">Click to View File Directly</a></h5>
-                        <p class="caption">Here is the figma file for our finished website. 
-                            I am very happy with how the website turned out, and I think that the collaboration among me and my team members was integral in creating a cohesive design and identity for the project.
-                            Our favorite feature of the website is the dark mode switch on its landing page which showcases the octobots ability to glow in the dark.</p>
-                        <button class="close-btn"><p class="description">Close</p></button>
-                        </div>
-                    </div>
+                <h3 class="sub">Project Overview</h3>
+                <p class="caption-justify">For this project, my two team members and I were tasked with creating
+                    a library of information about soft robotics and wearable technology.
+                    This library would also serve as a foundation for our later projects. 
+                    We decided to build our library as a website in Figma,
+                    with the goal of making the information easy to navigate and understand
+                    for someone unfamiliar with soft robotics. Since we were also new to
+                    the subject, we first needed to develop our own understanding before
+                    deciding how to communicate it through the website.</p>
+                <h3 class="sub">FigJam Process</h3>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Soft Robotics/FigJam.gif"/>
+                <p class="caption-justify">We started by creating a shared FigJam to collect our research and
+                    organize our findings. We divided the research among the three of us,
+                    and I focused on how soft robotics works, its history, its ecosystem,
+                    its cultural and environmental impact, legal considerations, and
+                    unexpected applications. Over the course of a week, we gathered
+                    information from reliable sources and began identifying how it could
+                    be organized on the website. Having our research in one place helped
+                    us build a shared understanding of the technology and gave us a clear
+                    foundation to move into the design process.</p>
+                <h3 class="sub">Website Process</h3>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Soft Robotics/FigSite.gif"/>
+                <p class="caption-justify">With our research organized, we began developing a visual identity
+                    that connected to the technology we were presenting. We created a
+                    moodboard in our FigJam with references that helped us explore possible
+                    directions for the website. Our color palette drew inspiration from
+                    the pink and blue appearance of the octobot, one of the soft robots
+                    we encountered during our research. We also compared several typefaces
+                    before choosing Almarai. These decisions gave us a consistent visual
+                    direction as we translated our research into the website's pages.</p>
+                <h3 class="sub">Website File</h3>
+                <iframe
+                    src="https://embed.figma.com/site/bD03dObhQw8lNW6IW75YTM/Soft-Robotics-and-Responsive-Wearable-tech-Microsite?node-id=0-1&amp;embed-host=share"
+                    style="display: block; width: 75%; height: 600px;"
+                    allowfullscreen>
+                </iframe>
+                <h5 class="sub"><a href="https://www.figma.com/site/bD03dObhQw8lNW6IW75YTM/Soft-Robotics-and-Responsive-Wearable-tech-Microsite?node-id=76-654&amp;t=jMxNCiD3HrQ0JKoU-1" 
+                    target="_blank">View Design Process File Page Directly</a>
+                </h5>
+                <p class="caption-justify">The finished website brings our research and visual identity together
+                    into a resource that introduces visitors to soft robotics. I am very
+                    happy with how it turned out, especially considering how unfamiliar
+                    we were with the subject at the beginning. Working together helped
+                    us connect our individual research contributions and create a cohesive
+                    project. One of our favorite features is the dark mode switch on the
+                    landing page, which highlights the octobot's glowing appearance.
+                    This project helped me understand how organizing research early in
+                    the process can guide both the content and visual direction of a design.</p>
+                <button class="close-btn" type="button"><p class="description">Close</p></button>
+            </div>
+            </section>
+        <section id="Community">
+            <h2>Lily Pad Landing</h2>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Community Branding/Hero.jpg"
+                style="width: 50%; height: auto;"/>
+            <button class="collapsible"><p class="description">View Design Process</p></button>
+            <div class="content">
+                <h3 class="sub">Project Overview</h3>
+                <p class="caption-justify">For this project, I was tasked with designing a brand that interacts
+                    with the local community. I developed Lily Pad Landing, a concept
+                    for an animal conservatory focused on the conservation and
+                    rehabilitation of animals that live in and around freshwater.
+                    I chose this direction because of my personal love of animals
+                    and my belief that local wildlife is an important part of the
+                    community. My goal was to create a visual identity that reflected
+                    this connection and made the conservatory feel approachable.</p>
+                <h3 class="sub">Initial Planning and Research</h3>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Community Branding/Research-to-Design.gif"/>
+                <p class="caption-justify">I began by deciding what kind of organization I wanted to create
+                    and outlining the research that would inform its identity.
+                    After choosing an animal conservatory, I interviewed a local
+                    conservationist about their work protecting and rehabilitating
+                    wildlife and their connection to the community. I then organized
+                    the interview findings into ideas I could apply to the brand.
+                    This helped me move beyond my personal interest in animals and
+                    consider how the conservatory could communicate its purpose
+                    to the people around it.</p>
+                <h3 class="sub">Moodboard</h3>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Community Branding/Moodboard.png"
+                style="width: 50%; height: auto;"/>
+                <p class="caption-justify">With my research in place, I created a moodboard to explore
+                    possible visual directions. I collected references for color,
+                    typography, and imagery that could help make the identity
+                    recognizable and approachable. The moodboard gave me a starting
+                    point for sketching and helped connect my research to the
+                    visual decisions I would make next.</p>
+                <h3 class="sub">Sketches</h3>
+                <div class="image-row">
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Community Branding/Sketch_01.jpg"/>
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Community Branding/Sketch_02.jpg"/>
+                </div>
+                <p class="caption-justify">I started sketching mascot ideas using a red-eyed tree frog
+                    and a macaw because of their bright colors and recognizable
+                    features. Exploring both animals allowed me to compare different
+                    directions before committing to one.</p>
+                <h3 class="sub">Early Ideas</h3>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Community Branding/Branding Drafts-01.jpg"
+                style="width: 50%; height: auto;"/>
+                <p class="caption-justify">I then brought the ideas from my moodboard and sketches into
+                    digital drafts. I explored typefaces and color palettes to see
+                    how they could work together as a visual identity. This stage
+                    helped me narrow down the options and consider how each choice
+                    supported the overall character of the brand.</p>
+                <div class="image-row">
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Community Branding/Branding Drafts-02.jpg"/>
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Community Branding/Branding Drafts-04.jpg"/>
+                </div>
+                <p class="caption-justify">Using those combinations, I developed early versions of the
+                    logo and brand name and compared how the mascots worked with the typography.
+                    These drafts helped me refine the branding direction and bring
+                    the separate elements into a more cohesive identity.</p>
+                <h3 class="sub">Final Style Guide</h3>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Community Branding/StyleGuide.gif"/>
+                <p class="caption-justify">I chose the frog direction because it felt like the strongest
+                    fit when used alongside Lily Pad Landing's name and freshwater focus. Although
+                    the red-eyed tree frog that inspired my early sketches is not
+                    native to the United States, I used it as a starting point
+                    for a stylized mascot rather than a representation of a
+                    specific local species. The final style guide brings the
+                    mascot, typography, and color palette together into a consistent
+                    system. This project helped me understand how research and
+                    visual exploration can shape a brand around its purpose
+                    and connection to a community.</p>
+                <button class="close-btn" type="button"><p class="description">Close</p></button>
+                </div>
+            </section>
+        <section id="Bilingual">
+            <h2>Komorebi Booklet</h2>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Bilingual Type/Hero1.png"
+                style="width: 50%; height: auto;"/>
+            <button class="collapsible"><p class="description">View Design Process</p></button>
+            <div class="content">
+                <h3 class="sub">Project Overview</h3>
+                <p class="caption-justify">For this project, I was tasked with designing a booklet around
+                    a word from another language that doesn't have a direct English
+                    equivalent. I chose the Japanese word “komorebi,” which describes
+                    sunlight filtering through the leaves of trees. Since I am also
+                    learning Japanese, this project gave me an opportunity to connect
+                    my language studies with my design work. My goal was to communicate
+                    the meaning of the word through both the typography and the
+                    physical experience of the booklet.</p>
+                <h3 class="sub">Inspiration</h3>
+                <div class="image-row">
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Bilingual Type/Inspo1.jpg"/>
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Bilingual Type/Inspo2.jpg"/>
+                </div>
+                <p class="caption-justify">I began by looking at Japanese posters to see how designers
+                    approached composition and typography using Japanese characters.
+                    Because Japanese and English have different writing systems,
+                    I wanted to study references that could inform how I worked
+                    with both languages. These posters helped me explore possible
+                    directions for the booklet while considering how the characters
+                    could become a central part of its visual identity.</p>
+                <h3 class="sub">Sketches</h3>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Bilingual Type/Sketches.gif"/>
+                <p class="caption-justify">From those references, I began sketching ways to make the
+                    lettering reflect the meaning of komorebi. I experimented
+                    with adding leaves to the characters and using the white
+                    space around them to suggest light passing through a forest
+                    canopy. These sketches helped me explore how much I could
+                    alter the letterforms while keeping them recognizable.</p>
+                <br>
+                <h3 class="sub">Initial Drafts</h3>
+                <div class="image-row">
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Bilingual Type/Drafts_01.jpg"/>
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Bilingual Type/Drafts_02.jpg"/>
+                </div>
+                <p class="caption-justify">When I moved into digital drafts, I chose to develop the idea
+                    of white space breaking into the edges of the characters.
+                    This felt like a more manageable way to communicate light
+                    filtering through trees than illustrating each character
+                    as a tree. It also allowed me to focus on the typography
+                    without adding details that could make the characters
+                    difficult to read at smaller sizes.</p>
+                <h3 class="sub">Development</h3>
+                <div class="image-row">
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Bilingual Type/Progress_01.jpg"/>
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Bilingual Type/Progress_02.jpg"/>
+                </div>
+                <p class="caption">As I developed the booklet, I expanded the ideas from my
+                    initial cover into interior spreads that broke down the
+                    meaning of the word. This gave the typography a clearer
+                    role beyond the cover and helped me establish a structure
+                    for the content. Rather than relying on one image to explain
+                    komorebi, I could guide the reader through its individual
+                    characters and how they contribute to the overall meaning.</p>
+                <h3 class="sub">Final Booklet Spread</h3>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Bilingual Type/FinalSpread.gif"/>
+                <p class="caption-justify">In the final layouts, I moved away from the white-space
+                    treatment around the characters and introduced yellow accents
+                    to represent sunlight. These accents also helped emphasize
+                    information throughout the booklet. I organized the interior
+                    spreads around individual characters that make up komorebi, beginning
+                    with the kanji for “tree.” This direction gave the booklet
+                    a more consistent visual system while keeping the meaning
+                    of the word at the center of the design.</p>
+                <br>
+                <h3 class="sub">Print Samples</h3>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Bilingual Type/Samples.gif"/>
+                <p class="caption-justify">With the layouts complete, I began testing how the booklet
+                    would work in print. For my first sample, I used watercolor
+                    paper for the cover because of its texture and rigidity,
+                    paired with standard printing paper for the interior pages.
+                    The sample revealed problems that weren't apparent on screen:
+                    the paper creased more easily than I wanted, and printing
+                    showed through the interior pages, making the content
+                    difficult to read. These issues helped me identify what
+                    I needed from the final paper choice.</p>
+                <br>
+                <h3 class="sub">Final Booklet Photos</h3>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/BilingualType/03_Reg.png"/>
+                <div class="image-row">
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/BilingualType/04_Reg.png"/>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/BilingualType/05_Reg.png"/>
+                </div>
+                <p class="caption-justify">After the first print sample, I looked for paper that would
+                    hold up better to handling and keep the printing from showing
+                    through. Coincidentally, I ended up working with Japanese washi paper made for
+                    woodblock printing. It had the thickness and tactile quality
+                    I was looking for, and its warm, off-white color gave the
+                    booklet a character that I felt suited the design. I finished
+                    the booklet using a traditional Japanese bookbinding technique
+                    to connect the physical construction with the language
+                    explored inside. This project helped me understand how
+                    typography, materials, and binding can work together to
+                    communicate an idea.</p>
+                <button class="close-btn"><p class="description">Close</p></button>
+                </div>
             </section>
         <section id="Super Bowl">
-            <h2>Super Bowl Design Case Study</h2>
-            <button class="collapsible"><p class="description">Click to View</p></button>
+            <h2>Super Bowl LXV</h2>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl/PosterMockup.jpg"
+                style="width: 50%; height: auto;"/>
+            <button class="collapsible"><p class="description">View Design Process</p></button>
             <div class="content">
-                <button class="collapsible subtle"><h3 class="sub">Project Overview</h3></button>
-                <div class="content">
-                    <p class="caption-justify">For this project, I was tasked with designing graphics for a preexisting or original event. 
-                        I decided to design for a hypothetical Super Bowl in Chicago due to the fact that I love the Chicago Bears. 
-                        During this project I had to curate an archive to reference when making my event's visual elements. 
-                        Overall, I am very happy with how this project turned out compared to where it started. 
-                        This was my first time truly making sports graphics and my improvement over the course of the project is very visible. 
-                        From the first promo graphics I made to the final ones of Caleb Williams and Bo Nix, my improvement was exponential.</p>
-                    <button class="close-btn"><p class="description">Close</p></button>
-                    </div>
-                <button class="collapsible subtle"><h3 class="sub">Visual Archive</h3></button>
-                <div class="content">
-                    <h5 class="sub"><a href="https://docs.google.com/gview?url=https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl LXV/Archive.pdf&embedded=true" target="_blank">Click to View PDF</a></h5>
-                    <p class="caption">This is my visual archive made up of graphics made in and around the city of Chicago. 
-                        This archive would serve as inspiration for my Super Bowl design language.</p>
-                    <button class="close-btn"><p class="description">Close</p></button>
-                    </div>
-                <button class="collapsible subtle"><h3 class="sub">Sketches</h3></button>
-                <div class="content">
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl LXV/Sketch.JPG"/>
-                        <p class="caption">Sketches made for the Super Bowl's logo.
-                            I wanted to incorporate the Chicago skyline into the design since it's Chicago's most notable feature. 
-                            I also wanted to incorporate art deco and modern visuals and typefaces to match the design of Chicago's most iconic buildings.</p>
-                    <button class="close-btn"><p class="description">Close</p></button>
-                    </div>
-                <button class="collapsible subtle"><h3 class="sub">Initial Poster Drafts</h3></button>
-                <div class="content">
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl LXV/Poster_01.jpg"/>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl LXV/Poster_03.jpg"/>
-                    <p class="caption">These were two early graphics made during the design process.
-                        At this point in the process, I was still figuring out how to properly incorporate cutouts of people into graphics while maintaining professional quality. 
-                        By the time the second graphic was made, I had started to get a better idea of what the events design language would look like. 
-                        I settled on the rosella and helvetica typefaces to properly incorporate art deco and modern visuals into the designs.</p>
-                    <button class="close-btn"><p class="description">Close</p></button>
-                    </div>
-                <button class="collapsible subtle"><h3 class="sub">Final Designs</h3></button>
-                <div class="content">
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl LXV/SB65Logo-01.jpg"/>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl LXV/SB65Logo-02.jpg"/>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl LXV/SB65Logo.jpg"/>
-                        <p class="caption">Super Bowl logo was designed to be a culmination of Chicago's visual identity by combining modern and art deco elements. 
-                            I also managed to properly incorporate iconic buildings from the Chicago skyline as well as the design language and color scheme from the Chicago flag.</p>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl LXV/Caleb_Banner.jpg"/>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl LXV/Bo_Banner.jpg"/>
-                        <p class="caption">Player-specific graphics that would be seen on displays around the stadium and on social media. 
-                            These and the logo are by far the elements of the project I am most proud of as they look the most professional and perfectly exemplify what the design language of a Chicago Super Bowl could look like.
-                        </p>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl LXV/TicketBanner_02.png"/>
-                        <p class="caption">Banner graphic that would be seen on the digital ticket and jumbotron. 
-                            If I could, I would go back a fix this design to make it match the player graphics more.</p>
-                    <button class="close-btn"><p class="description">Close</p></button>
-                    </div>
-                <button class="collapsible subtle"><h3 class="sub">Mock-Ups</h3></button>
-                <div class="content">
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl LXV/Ticket_02.png"/>
-                        <p class="caption">Digital ticket</p>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl LXV/Email.jpg"/>
-                        <p class="caption">Ticket confirmation email</p>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl LXV/MockUp.jpg"/>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl LXV/MockUp_02.jpg"/><br>
-                    <p class="caption">Promotional graphics in action</p>
-                    <button class="close-btn"><p class="description">Close</p></button>
-                    </div>
+                <h3 class="sub">Project Overview</h3>
+                <p class="caption-justify">For this project, I was tasked with designing graphics for
+                    a preexisting or original event. As a Chicago Bears fan,
+                    I chose to create a visual identity for a hypothetical
+                    Super Bowl in Chicago. I wanted the designs to connect
+                    the energy of the event with the character of the city.
+                    This was my first substantial sports graphics project,
+                    so it also gave me an opportunity to develop my skills
+                    in image editing, typography, and creating a consistent
+                    identity across different formats.</p>
+                <h3 class="sub">Visual Reference Archive</h3>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl/Archive.gif"/>
+                <p class="caption-justify">I began by curating an archive of graphics made in and
+                    around Chicago. These references helped me explore how
+                    the city's identity could inform the event's visual
+                    direction. Rather than relying only on existing sports
+                    graphics, I wanted to draw from Chicago itself and build
+                    a design language that felt connected to the location.
+                    The archive became a reference point as I developed
+                    the logo, typography, and promotional materials.</p>
+                <h3 class="sub">Logo Sketches</h3>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl/Sketch.jpg"
+                    style="width: 50%; height: auto;"/>
+                <p class="caption-justify">With those references in place, I began sketching ways
+                    to incorporate the Chicago skyline and flag into the
+                    logo. Both felt like recognizable elements that could
+                    establish the location of the event. I also explored
+                    combining Art Deco influences with modern forms to
+                    reflect the architectural direction I wanted to bring
+                    into the identity.</p>
+                <h3 class="sub">Initial Logo Development</h3>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl/LogoProgress_01.jpg"/>
+                <p class="caption-justify">I then translated my sketches into digital logo drafts,
+                    exploring how the Chicago references could work together
+                    as one mark. This stage helped me move from individual
+                    ideas toward a clearer direction for the event's identity.
+                    Developing the logo also gave me a starting point for
+                    the visual elements I would carry into the other graphics.</p>
+                <h3 class="sub">Initial Poster Drafts</h3>
+                <div class="image-row">
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl/Poster_01.jpg"/>
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl/Poster_03.jpg"/>
+                </div>
+                <p class="caption-justify">My early poster drafts were an opportunity to test the
+                    identity while developing my approach to player graphics.
+                    At this point, I was still learning how to integrate
+                    cutouts of people into a composition with a professional
+                    finish. As I worked through the drafts, the visual
+                    direction became clearer. I chose Rosella and Helvetica
+                    to bring the Art Deco and modern influences together,
+                    giving me a more consistent foundation for the final designs.</p>
+                <h3 class="sub">Final Designs</h3>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl/SB65Logos.gif" style="width: 50%; height: auto;"/>
+                <p class="caption">Finalized Logo</p>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl/Email.jpg"/>
+                <p class="caption">Ticket Purchase Confirmation Email</p>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl/Ticket_02.png"/>
+                <p class="caption">Digital Ticket</p>
+                <div class="image-row">
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl/Bo_Banner.jpg"/>
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl/Caleb_Banner.jpg"/>
+                </div>
+                <p class="caption">Player Graphics</p>
+                <div class="image-row">
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl/MockUp_01.jpg"/>
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl/MockUp_02.jpg"/>
+                </div>
+                <p class="caption">Stadium Graphic Mock-Ups</p>
+                <p class="caption-justify">With the logo finalized, I applied the identity across
+                    materials that would support the event experience.
+                    Moving beyond posters helped me consider how the same
+                    visual language could work in both promotional graphics
+                    and practical formats, such as an email confirmation
+                    and a digital ticket. The final graphics featuring Bo Nix and Caleb Williams
+                    show the progress I made from the initial poster drafts.
+                    By this stage, I had a clearer understanding of how
+                    to bring player imagery, typography, and the event's
+                    identity together. I am especially happy with the
+                    improvement between these designs and my early work,
+                    both in the image editing and the overall compositions.</p>
+                <h3 class="sub">Post-Project Presentation</h3>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl/Presentation.gif"/>
+                <p class="caption-justify">
+                    I brought the project together in a final presentation
+                    showing the identity and its applications. Looking
+                    back at the work as a whole helped me see how much
+                    the designs developed throughout the process. This
+                    project gave me a stronger foundation in sports
+                    graphics and helped me understand how a consistent
+                    visual identity can connect an event to its host city.</p>
+                <button class="close-btn" type="button"><p class="description">Close</p></button>
                 </div>
             </section>
         <section id="Olympic">
-            <h2>Olympic Design Case Study</h2>
-            <button class="collapsible"><p class="description">Click to View</p></button>
+            <h2>2054 Olympic Games</h2>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Olympics/Hero2.jpg"
+                style="width: 50%; height: auto;"/>
+            <button class="collapsible"><p class="description">View Design Process</p></button>
             <div class="content">
-                <button class="collapsible subtle"><h3 class="sub">Project Overview</h3></button>
-                <div class="content">
-                    <h4 class="sub">Part 1: Visual Identity</h4>
-                    <p class="caption-justify">For the first part of this project, I was tasked with designing the visual identity of a future Olympic games alongside a partner. 
-                        The city was chosen at random and we were given Istanbul, Turkey. 
-                        I ended up designing the main logo for the games and the logos for the events while my partner designed and curated the colors, motifs, and typography.
-                        We decided that the 3 main principles of our games would be creativity, heritage, and diversity as they are particularly relevant to the city of Istanbul and its culture.
-                        We then decided upon the color palette of red, blue, and gold due to their prominence in Turkish culture.
-                        I am very happy with how our work turned out. 
-                        Collaborating with a partner enhanced the final product, because we were able to distill Turkish culture into a simple, yet faithful and distinct visual identity.
-                    Due to the collaborative nature of the process, my partner's work influenced my work and vice-versa. As a result, this made our project's visual identity cohesive and high quality.</p>
-                    <button class="close-btn"><p class="description">Close</p></button>
-                    <h4 class="sub">Part 2: Artifact Design</h4>
-                    <p class="caption-justify">For the second part of the project, I had to design an "artifact" for my assigned Olympic games. 
-                        This "artifact" had to be an item that would be purchasable/obtainable at the Olympics that had to exemplify the themes, identity, and country of the Olympic games I helped design. 
-                        I decided to create a jacket that celebrates the Olympics. 
-                        This jacket was designed to be similar to warm-up jackets that are worn in sports like soccer and basketball which are very popular in Turkey. 
-                        The aesthetics of this jacket are supposed to celebrate the “heritage” and “diversity” themes of the 2054 Summer olympics with traditional Turkish/Arabic patterns. 
-                        What makes these jackets special is that the zipper charms are swappable. 
-                        Instead of pins being exchanged at this Olympics, country-related charms will be exchanged. 
-                        These charms can be used as zippers for the jacket, can be attached to jewelry, or used as keychains. 
-                        The many different uses of these charms is meant to encourage the frequent exchange of them so that Olympians can collect and use as many as they can. 
-                        In the mock-up, some designs may take motifs from the country flag, for example, the Argentinian charm is the Sun of May, a symbol found in the Argentinian flag. 
-                        Some charms may celebrate other aspects of a country, for example, the American charm celebrates the bald eagle, and is shaped like a gold medal, and mentions the year of the olympics.
-                        I am very proud of this creation, because it combines my love for fashion with my love for branding, graphic design, and sports. 
-                    </p>
-                    <button class="close-btn"><p class="description">Close</p></button>
-                    </div>
-                <button class="collapsible subtle"><h3 class="sub">Initial Inspiration</h3></button>
-                <div class="content">
-                    <h5 class="sub"><a href="https://docs.google.com/gview?url=https://raw.githubusercontent.com/TimpactFont/portfolio/main/Olympic/IstanbulReference.pdf&embedded=true" target="_blank">Click to View PDF</a></h5>
-                    <p class="caption">This is our presentation about our cultural research and visual moodboard. 
-                        We wanted to encapsulate Turkish culture as much as possible, especially since Istanbul is one of the most relevant cities in world history.
-                        Ottoman art was especially important to us as it gave us a starting point for our visual identity.
-                    </p>
-                    <button class="close-btn"><p class="description">Close</p></button>
-                    </div>
-                <button class="collapsible subtle"><h3 class="sub">Logo Sketches</h3></button>
-                <div class="content">
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Olympic/LogoSketch_01.JPG"/>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Olympic/LogoSketch_02.JPG"/>
-                    <p class="caption">I was very inspired by the floral motifs on Turkish and Ottoman art, so I decided to iterate on that for my logo sketches.
-                    </p>
-                    <button class="close-btn"><p class="description">Close</p></button>
-                    </div>
-                <button class="collapsible subtle"><h3 class="sub">Final Logos</h3></button>
-                <div class="content">
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Olympic/OlympicLogo.png"/>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Olympic/Pictograms.jpg"/>
-                    <p class="caption">For the final logo, I went with a design that combines the tulip and the Olympic flame. 
-                        I did this because the tulip is one of the most prominent motifs in Turkish and Ottoman art and it shares a visual parallels to a flame, which is one of the most iconic symbols in the Olympic games. 
-                        For the event-specific logos, I didn't sketch them out and began working on them in illustrator instead. 
-                        This is because I wanted them to be visually similar to the brush strokes seen on traditional Turkish and Ottoman pottery, and it was easier to visualize those concepts with strokes in illustrator than with pencil and paper.
-                    </p>
-                    <button class="close-btn"><p class="description">Close</p></button>
-                    </div>
-                <button class="collapsible subtle"><h3 class="sub">Style Guide</h3></button>
-                <div class="content">
-                    <h5 class="sub"><a href="https://docs.google.com/gview?url=https://raw.githubusercontent.com/TimpactFont/portfolio/main/Olympic/IstanbulStyleGuide.pdf&embedded=true" target="_blank">Click to View PDF</a></h5>
-                    <p class="caption">This is the style guide my partner and I created going over our Olympic games' visual identity.</p>
-                    <button class="close-btn"><p class="description">Close</p></button>
-                    </div>
-                <button class="collapsible subtle"><h3 class="sub">Artifact Sketches</h3></button>
-                <div class="content">
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Olympic/ArtifactSketch_01.JPG"/>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Olympic/ArtifactSketch_02.JPG"/>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Olympic/ArtifactSketch_03.JPG"/>
-                    <p class="caption">Originally, my cultural artifact was supposed to be a field guide made for tourists and fans visiting the Olympics. 
-                        This field guide would have showcased Istanbul's food and wildlife, and also showcased the Olympians from each country similar to that seen in match programs. 
-                        I ended up scrapping this idea and sketching the concepts for a jacket due to the short deadline of the project and because of my love of designing clothes.
-                        I think that I made the right decision, because I don't think the final field guide concept would have turned out as well as the final jacket concept.
-                    </p>
-                    <button class="close-btn"><p class="description">Close</p></button>
-                    </div>
-                <button class="collapsible subtle"><h3 class="sub">Final Artifact</h3></button>
-                <div class="content">
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Olympic/OlympicJacket-01.png"/>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Olympic/OlympicJacket-02.png"/>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Olympic/OlympicJacket-03.png"/>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Olympic/OlympicJacket-04.png"/>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Olympic/OlympicJacket-05.png"/>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Olympic/OlympicJacket-06.png"/>
-                    <p class="caption">For the final jacket design, I created multiple colorways since this jacket would also be purchasable by fans attending the games, and because I just enjoyed making variants of the jacket so much. 
-                        Some colorways integrate traditional Turkish and Ottoman patterns, while others utilize the Olympic colors and the official colors of Turkey. 
-                        While I never settled on an "official" colorway, I would say that the black and white jacket feels the most "Olympic" and the blue and white patterned jacket feels the most "Turkish".
-                        So the "official" colorway would be one of those two in my opinion.
-                    </p>
-                    <button class="close-btn"><p class="description">Close</p></button>
-                    </div>
-                <button class="collapsible subtle"><h3 class="sub">Artifact Presentation</h3></button>
-                <div class="content">
-                    <h5 class="sub"><a href="https://docs.google.com/gview?url=https://raw.githubusercontent.com/TimpactFont/portfolio/main/Olympic/Artifact.pdf&embedded=true" target="_blank">Click to View PDF</a></h5>
-                    <button class="close-btn"><p class="description">Close</p></button>
-                    </div>
+                <h3 class="sub">Project Overview</h3>
+                <p class="caption-justify">For this project, my partner and I were tasked with designing
+                    a visual identity for hypothetical Olympic Games in Istanbul,
+                    Turkey. I designed the main logo and event pictograms, while
+                    my partner developed the colors, motifs, and typography.
+                    We built the identity around creativity, heritage, and diversity,
+                    drawing from our cultural research on Istanbul. I then worked
+                    individually to apply the identity to a warm-up jacket with
+                    interchangeable zipper charms that athletes and fans could
+                    trade. This gave me an opportunity to bring my interests
+                    in fashion, branding, and sports together through an item
+                    people could wear and personalize.</p>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Olympics/Reference.gif"/>
+                <p class="caption-justify">We began with cultural research and a visual moodboard
+                    to establish a direction for the identity. Ottoman art
+                    became an important reference, particularly its floral
+                    motifs and decorative patterns. These references gave
+                    us a starting point for the forms and details we wanted
+                    to explore. We chose red, blue, and gold based on the
+                    cultural references we collected, then used our three
+                    guiding themes to connect those choices into a shared
+                    visual direction.</p>
+                <h3 class="sub">Logo Sketches</h3>
+                <div class="image-row">
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Olympics/LogoSketch1.jpg"/>
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Olympics/LogoSketch2.jpg"/>
                 </div>
-            </section>
-        <section id="Community">
-            <h2>Conservatory Branding Case Study</h2>
-            <button class="collapsible"><p class="description">Click to View</p></button>
-            <div class="content">
-                <button class="collapsible subtle"><h3 class="sub">Project Overview</h3></button>
-                <div class="content">
-                    <p class="caption-justify">For this project, I was tasked with designing a brand that interacts within the local community. 
-                        I designed an animal conservatory called Lily Pad Landing that specializes in the conservation and rehabilitation of animals that live in and around bodies of freshwater.
-                        I chose to design branding for an animal conservatory because I have a personal love of animals, and people tend to forget that the ecosystem is apart of the local community.</p>
-                    <button class="close-btn"><p class="description">Close</p></button>
-                    </div>
-                <button class="collapsible subtle"><h3 class="sub">Moodboard</h3></button>
-                <div class="content">
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/CommunityBranding/Moodboard.png"/>
-                    <button class="close-btn"><p class="description">Close</p></button>
-                    </div>
-                <button class="collapsible subtle"><h3 class="sub">Sketches</h3></button>
-                <div class="content">
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/CommunityBranding/Sketch_01.JPG"/>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/CommunityBranding/Sketch_02.JPG"/>
-                        <p class="caption">Initally I had the idea of using a frog or a macaw as a mascot</p>
-                    <button class="close-btn"><p class="description">Close</p></button>
-                    </div>
-                <button class="collapsible subtle"><h3 class="sub">Initial Drafts</h3></button>
-                <div class="content">
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/CommunityBranding/Branding Drafts-01.png"/>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/CommunityBranding/Branding Drafts-02.png"/>
-                        <p class="caption">Once I started working digitally, I had an idea of the color palettes and fonts I wanted to use</p>
-                    <button class="close-btn"><p class="description">Close</p></button>
-                    </div>
-                <button class="collapsible subtle"><h3 class="sub">Final Style Guide</h3></button>
-                <div class="content">
-                    <h5 class="sub"><a href="https://docs.google.com/gview?url=https://raw.githubusercontent.com/TimpactFont/portfolio/main/CommunityBranding/BrandGuidelinesLilyPad.pdf&embedded=true" target="_blank">Click to View PDF</a></h5>
-                    <button class="close-btn"><p class="description">Close</p></button>
-                    </div>
-                <button class="collapsible subtle"><h3 class="sub">Ad Mock-Ups</h3></button>
-                <div class="content">
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/CommunityBranding/PosterMock_01.png"/>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/CommunityBranding/PosterMock_02.png"/>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/CommunityBranding/PosterMock_03.png"/><br>
-                    <button class="close-btn"><p class="description">Close</p></button>
-                    </div>
+                <p class="caption-justify">From our research, I was especially drawn to the floral
+                    motifs in Turkish and Ottoman art. I began sketching
+                    ways to translate those forms into a recognizable
+                    Olympic logo. This stage helped me explore how a
+                    cultural reference could become a simpler mark while
+                    still connecting to the identity we were developing.</p>
+                <h3 class="sub">Final Logos</h3>
+                <div class="image-row">
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Olympics/OlympicLogo.png"/>
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Olympics/Pictograms.gif"/>
+                </div>
+                <p class="caption-justify">For the final logo, I combined a tulip with the Olympic
+                    flame. The tulip stood out in our visual references,
+                    and its shape offered a connection to the flame that
+                    allowed me to bring both ideas into one mark. For the
+                    event pictograms, I worked directly in Illustrator to
+                    explore forms inspired by the brushstrokes in the
+                    pottery we researched. Working digitally made it easier
+                    to experiment with those strokes and develop a consistent
+                    approach across the different sports.</p>
+                <h3 class="sub">Style Guide</h3>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Olympics/StyleGuide.gif"/>
+                <p class="caption-justify">My partner and I brought the logo, pictograms, colors,
+                    motifs, and typography together in a final style guide.
+                    Although we divided the responsibilities, our decisions
+                    influenced each other throughout the process. Seeing
+                    the elements together helped us establish a cohesive
+                    identity and gave me a foundation to reference when
+                    designing the artifact in the second part of the project.</p>
+                <h3 class="sub">Artifact Sketches</h3>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Olympics/ArtifactSketches.gif"
+                style="width: 50%; height: auto;"/>
+                <p class="caption-justify">My first artifact idea was a field guide for visitors
+                    attending the Games. It would introduce Istanbul's
+                    food and wildlife alongside athlete profiles, similar
+                    to a sports match program. As I considered the amount
+                    of content needed and the project's short deadline,
+                    I shifted toward a jacket. This direction gave me
+                    a more focused way to apply the identity while exploring
+                    my interest in clothing design. I then began sketching
+                    how the jacket and interchangeable charms could work
+                    together as one concept.</p>
+                <h3 class="sub">Final Artifact</h3>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Olympics/Artifacts.gif"/>
+                <p class="caption-justify">For the final jacket concept, I explored colorways inspired
+                    by Turkish and Ottoman patterns, the Olympic colors, and
+                    Turkey's red and white. I also designed interchangeable
+                    country-related charms inspired by Olympic pin trading.
+                    These could be exchanged and used as zipper pulls, jewelry
+                    attachments, or keychains, encouraging people to personalize
+                    the jacket and use the charms beyond the Games. I am especially
+                    proud of how this project brought my interests in fashion,
+                    branding, and sports together while building on the identity
+                    my partner and I developed.</p>
+                <button class="close-btn"><p class="description">Close</p></button>
                 </div>
             </section>
         <section id="Toolkit">
-            <h2>Health Toolkit Case Study</h2>
-            <button class="collapsible"><p class="description">Click to View</p></button>
+            <h2>ColonAssist Toolkit</h2>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Toolkit/Hero1.jpg"
+                style="width: 50%; height: auto;"/>
+            <button class="collapsible"><p class="description">View Design Process</p></button>
             <div class="content">
-                <button class="collapsible subtle"><h3 class="sub">Project Overview</h3></button>
-                <div class="content">
-                    <p class="caption-justify">For this project, I was tasked with designing a toolkit target at a health problem that is stigmatized by society.
-                         We had to choose from one of 3 health conditions, pre-diabetes, postpartum depression, and colorectal cancer. 
-                         I ended up choosing colorectal cancer due to the fact that my family has a history of it, and I think that it's very interesting that it's stigmatized due to where it affects the body.</p>
-                    <button class="close-btn"><p class="description">Close</p></button>
-                    </div>
-                <button class="collapsible subtle"><h3 class="sub">Research</h3></button>
-                <div class="content">
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Health Toolkit/LiteratureMatrix-01.png"/>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Health Toolkit/LiteratureMatrix-02.png"/>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Health Toolkit/LiteratureMatrix-03.png"/>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Health Toolkit/LiteratureMatrix-04.png"/>
-                        <p class="caption">Initally, we were tasked with reading articles related to colorectal cancer.
-                            After reading the articles, we dissected the material through a literature matrix. 
-                            We did this to give ourselves a better understanding of colorectal cancer and to breakdown the material we just studied.
-                        </p>
-                    <h5 class="sub"><a href="https://docs.google.com/gview?url=https://raw.githubusercontent.com/TimpactFont/portfolio/main/Health Toolkit/Synopsis.pdf&embedded=true" target="_blank">Click to View PDF</a></h5>
-                        <p class="caption">After creating our matrix, we individually had to create a synopsis related to our research on colorectal cancer.</p>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Health Toolkit/DataVisualization.jpg"/>
-                        <p class="caption">After my initial research, I conducted further research into colorectal cancer.
-                            This research was more statistic-based, and my goal was to visualize the statistics in a graphic.
-                        </p>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Health Toolkit/JourneyMap.jpg"/>
-                        <p class="caption">To cap-off all my research, I ended up making a user-journey map. 
-                            The purpose of this map is to visualize the path my target demographic would follow on their journey fighting colorectal cancer.
-                        </p>
-                    <button class="close-btn"><p class="description">Close</p></button>
-                    </div>
-                <button class="collapsible subtle"><h3 class="sub">Branding Drafts</h3></button>
-                <div class="content">
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Health Toolkit/BrandingDrafts.jpg"/>
-                        <p class="caption">For my initial toolkit branding, I wanted to use the icon of the ribbon due to its significant symbolism in the fight against cancer.
-                            The color for colorectal cancer awareness is blue, so I decided that I wanted to also build my toolkit's identity around that.
-                        </p>
-                    <button class="close-btn"><p class="description">Close</p></button>
-                    </div>
-                <button class="collapsible subtle"><h3 class="sub">Box Contents</h3></button>
-                <div class="content">
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Health Toolkit/BoxCutout-01.jpg"/>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Health Toolkit/BoxCutout-02.jpg"/>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Health Toolkit/InstructionSheet-01.png"/>
-                    <p class="caption">This is a visualization of what the instruction sheet would look like.
-                        This sheet would be used to inform the user how to to perform their self-screening.
-                        </p>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Health Toolkit/AdInfoSheet-02.png"/>
-                    <p class="caption">This paper would provide the user more information about colorectal cancer.
-                        </p>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Health Toolkit/FAQSheet-02.png"/>
-                    <p class="caption">This paper would provide the user with FAQs and answers about colorectal cancer.
-                        </p>
-                    <button class="close-btn"><p class="description">Close</p></button>
-                    </div>
-                <button class="collapsible subtle"><h3 class="sub">Process Book</h3></button>
-                <div class="content">
-                    <h5 class="sub"><a href="https://docs.google.com/gview?url=https://raw.githubusercontent.com/TimpactFont/portfolio/main/Health Toolkit/Process.pdf&embedded=true" target="_blank">Click to View PDF</a></h5>
-                        <p class="caption">This is the full process book of my time researching, drafting, and making my health toolkit.
-                            It includes box prototypes, and further in-depth research into health-related ad campaigns.
-                        </p>
-                    <button class="close-btn"><p class="description">Close</p></button>
-                    </div>
-                <button class="collapsible subtle"><h3 class="sub">Final Style Guide</h3></button>
-                <div class="content">
-                    <h5 class="sub"><a href="https://docs.google.com/gview?url=https://raw.githubusercontent.com/TimpactFont/portfolio/main/Health Toolkit/Style.pdf&embedded=true" target="_blank">Click to View PDF</a></h5>
-                        <p class="caption">This is the full style guide of the brand for my health toolkit.
-                        </p>
-                    <button class="close-btn"><p class="description">Close</p></button>
-                    </div>
+                <h3 class="sub">Project Overview</h3>
+                <p class="caption-justify">For this project, I was tasked with designing a toolkit
+                    around a health condition affected by social stigma.
+                    We could choose from prediabetes, postpartum depression,
+                    or colorectal cancer. I chose colorectal cancer because
+                    of my family's history with it and my interest in how
+                    discomfort around the part of the body it affects can
+                    shape conversations about it. I developed ColonAssist,
+                    a toolkit concept intended to make information and
+                    screening instructions feel more approachable.</p>
+                <h3 class="sub">Research</h3>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Toolkit/Research.gif"/>
+                <p class="caption-justify">I began by reading the assigned articles about colorectal
+                    cancer and organizing the information in a literature
+                    matrix. Breaking down the material helped me develop
+                    a better understanding of the subject and compare ideas
+                    across the readings. This research gave me a foundation
+                    for considering what information the toolkit should
+                    communicate and how to present it clearly.</p>
+                <h3 class="sub">Branding Drafts</h3>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Toolkit/BrandingDrafts.jpg"
+                style="width: 50%; height: auto;"/>
+                    <p class="caption">With that foundation in place, I began exploring the
+                        toolkit's visual identity. I chose to work with the
+                        awareness ribbon because of its recognizable connection
+                        to cancer awareness. Blue became the starting point
+                        for the color palette because of its association with
+                        colorectal cancer awareness. These choices gave ColonAssist 
+                        a connection to its purpose as I developed
+                        the rest of the identity.</p>
+                <h3 class="sub">Style Guide</h3>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Toolkit/Style.gif"/>
+                <p class="caption-justify">I brought the branding decisions together in a style
+                    guide to establish a consistent direction for the
+                    toolkit. Having a shared visual system helped me
+                    connect the packaging and printed materials while
+                    considering the different roles each piece would
+                    serve. I wanted the contents to feel like parts of
+                    one resource, with information that was easy to follow.</p>
+                <h3 class="sub">Infographic + User Journey Map</h3>
+                <div class="image-row">
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Toolkit/DataVisualization.jpg"/>
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Toolkit/JourneyMap.jpg"/>
                 </div>
-                
-            </section>
-        <section id="Bilingual">
-            <h2>Bilingual Type Design Case Study</h2>
-            <button class="collapsible"><p class="description">Click to View</p></button>
-            <div class="content">
-                    <button class="collapsible subtle"><h3 class="sub">Project Overview</h3></button>
-                    <div class="content">
-                        <p class="caption-justify">For this project, my task was to take a word from a foreign language that doesn't have a direct translation in English and design a booklet for it. 
-                            Out of the words I could choose, I decided to use the Japanese word "Komorebi". 
-                            This word roughly translates to "sunlight leaking through trees", and is used to describe the beauty of light rays bleeding and seeping between the leaves of the canopy of a tree/forest. 
-                            Having access to another language allowed for more creativity within the design, and since I'm also learning Japanese, I was able to apply some of the knowledge I have about the language to this project.</p>
-                            <button class="close-btn"><p class="description">Close</p></button>
-                        </div>
-                    <button class="collapsible subtle"><h3 class="sub">Sketches</h3></button>
-                    <div class="content">
-                        <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/BilingualType/Sketches_01.jpg" />
-                        <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/BilingualType/Sketches_02.jpg"/>
-                        <button class="close-btn"><p class="description">Close</p></button>
-                        </div>
-                    <button class="collapsible subtle"><h3 class="sub">Initial Drafts</h3></button>
-                    <div class="content">
-                        <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/BilingualType/Drafts_01.jpg"/>
-                        <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/BilingualType/Drafts_02.jpg"/>
-                        <p class="caption">Initally worked on the cover page of the booklet and wanted it to reflect the meaning of "komorebi" by having the page bleed around the characters</p>
-                        <button class="close-btn"><p class="description">Close</p></button>
-                        </div>
-                    <button class="collapsible subtle"><h3 class="sub">Development</h3></button>
-                    <div class="content">
-                        <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/BilingualType/Progress_01.jpg"/>
-                        <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/BilingualType/Progress_02.jpg"/>
-                        <p class="caption">Iterated my initial cover page into two spreads breaking down the meaning of the word</p>
-                        <button class="close-btn"><p class="description">Close</p></button>
-                        </div>
-                    <button class="collapsible subtle"><h3 class="sub">Final Booklet Spread</h3></button>
-                    <div class="content">
-                        <h5 class="sub"><a href="https://docs.google.com/gview?url=https://raw.githubusercontent.com/TimpactFont/portfolio/main/BilingualType/KomorebiPrint.pdf&embedded=true" target="_blank">Click to View PDF</a></h5>
-                        <p class="caption">Refined my inital cover page idea, and made a page spread for each character in "komorebi", and added yellow accents to symbolize the sunlight</p>
-                        <button class="close-btn"><p class="description">Close</p></button>
-                        </div>
-                    <button class="collapsible subtle"><h3 class="sub">Photos</h3></button>
-                    <div class="content">
-                        <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/BilingualType/01_Digi.png"/>
-                        <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/BilingualType/03_Reg.png"/>
-                        <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/BilingualType/04_Reg.png"/>
-                        <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/BilingualType/05_Reg.png"/>
-                        <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/BilingualType/06_Reg.png"/>
-                        <button class="close-btn"><p class="description">Close</p></button>
-                        </div>
+                <p class="caption-justify">I then explored how the research could inform both
+                    the information design and the experience of using
+                    the toolkit. The infographic gave me a way to present
+                    information visually, while the user journey map
+                    helped me consider the steps someone would move
+                    through. Together, these pieces connected the visual
+                    identity to the toolkit's intended use.</p>
+                <h3 class="sub">Box Construction Exploration</h3>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Toolkit/PrintSamples.gif"
+                style="width: 50%; height: auto;"/>
+                <p class="caption-justify">After developing the visual direction, I began
+                    exploring how the toolkit could work as a physical
+                    package. Making print samples allowed me to move
+                    beyond the flat layouts and consider how the box
+                    would fold and come together. This stage helped
+                    me connect the graphic design with the construction
+                    of the object.</p>
+                <h3 class="sub">Box Contents</h3>
+                <div class="image-row">
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Toolkit/BoxCutout-01.jpg"/>
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Toolkit/BoxCutout-02.jpg"/>
+                </div>
+                <p class="caption">This is the cutout sheet of the box.</p>
+                <div class="image-row">
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Toolkit/Instruction1.png"/>
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Toolkit/Instruction2.png"/>
+                </div>
+                <p class="caption-justify">This is a prototype of the instruction sheet.
+                    This sheet would be used to inform the user how to to perform their self-screening.</p>
+                <div class="image-row">
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Toolkit/Info1.png"/>
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Toolkit/Info2.png"/>
+                </div>
+                <p class="caption">This paper would provide the user more information about colorectal cancer.</p>
+                <div class="image-row">
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Toolkit/FAQ1.png"/>
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Toolkit/FAQ2.png"/>
+                </div>
+                    <p class="caption">This paper would provide the user with FAQs and answers about colorectal cancer and ColonAssist.</p>
+                <h3 class="sub">Initial Box Prototype</h3>
+                <div class="image-row">
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Toolkit/Prototype_01.jpg"/>
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Toolkit/Prototype_02.jpg"/>
+                </div>
+                <p class="caption-justify">I assembled an initial box prototype to see how
+                    the packaging worked in physical form. Moving
+                    from a cutout sheet to an assembled object gave
+                    me a clearer view of its proportions and how
+                    the graphics appeared across the folded surfaces.
+                    It also provided a reference for developing
+                    the final prototype.</p>
+                <h3 class="sub">Final Box Prototype</h3>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Toolkit/ColorPrototypes.gif"/>
+                <p class="caption-justify">The final prototype brings the visual identity,
+                    packaging, and printed resources together into
+                    one toolkit concept. This project challenged me
+                    to consider how design could make a sensitive
+                    subject easier to approach while keeping the
+                    information organized. It helped me understand
+                    how branding, information design, and physical
+                    construction can work together to support
+                    a user's experience.</p>
+                <button class="close-btn"><p class="description">Close</p></button>
                 </div>
             </section>
         <section id="Professional">
             <h2>Professional Work</h2>
             <button class="collapsible"><p class="description">Click to View</p></button>
             <div class="content">
-                <button class="collapsible subtle"><h3 class="sub">Blaney Creative (2022-2023)</h3></button>
-                <div class="content">
-                    <h4 class="sub">Live Launch</h4>
-                        <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Professional/lllogo.png" />
-                            <p class="caption">Live Launch logo</p>
-                    <h4 class="sub">War Dog Wrestling </h4>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Professional/wardog (1).png" />
-                            <p class="caption">War Dog Wrestling logo</p>
-                    <h4 class="sub">Mishigami Hats</h4>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Professional/mishigami.jpg" />
-                            <p class="caption">Hat diagram</p>
-                    <button class="close-btn"><p class="description">Close</p></button>
-                    </div>
-                <button class="collapsible subtle"><h3 class="sub">VTDITC: Hip Hop Studies at Virginia Tech (2023-2025)</h3></button>
-                <div class="content">
-                <h4 class="sub">Flyers</h4>
-                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Professional/volume56.png" />
-                        <p class="caption">VTDITC Volume: 56 (Fall 2024)</p>
-                        <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Professional/volume58.jpg" />
-                        <p class="caption">VTDITC Volume: 58 (Spring 2025)</p>
-                <h4 class="sub">Instagram Posts</h4>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Professional/jrawls1.png" />
-                        <p class="caption"><a href="https://www.instagram.com/p/C6PGY2Jphxs/?utm_source=ig_web_copy_link" target="_blank">
-                            Jazz Hop: J. Rawls Influence (Spring 2024)</a></p>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Professional/heat.png" />
-                        <p class="caption"><a href="https://www.instagram.com/p/C_3y_r_ynt2/?utm_source=ig_web_copy_link" target="_blank">
-                            Heat Index Sample Pack (Summer 2024)</a></p>
-                <h4 class="sub">Albums & EPs</h4>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Professional/frontsnp.png" />
-                        <p class="caption"><a href="https://vtditc.bandcamp.com/album/show-prove-volume-1-raw" target="_blank">
-                            "Show & Prove Volume 1 (raw)" (Fall 2024)</a></p>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Professional/backsnp.png" />
-                        <p class="caption"><a href="https://vtditc.bandcamp.com/album/show-prove-volume-1-edited" target="_blank">
-                            "Show & Prove Volume 1 (edited)" (Fall 2024)</a></p>
-                    <button class="close-btn"><p class="description">Close</p></button>
-                    </div>
-                <button class="collapsible subtle"><h3 class="sub">DesignUp Philanthropy (Spring 2025)</h3></button>
-                <div class="content">
-                    <h4 class="sub">Blacksburg Volunteer Rescue Service</h4>
-                        <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Professional/All_Banners.jpg" />
-                            <p class="caption">Retractable banner graphics</p>
-                    <button class="close-btn"><p class="description">Close</p></button>
-                    </div>
+                <h3 class="sub">VTDITC: Hip Hop Studies at Virginia Tech</h3>
+                <div class="image-row">
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Professional/ShowAndProve.jpg"/>
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Professional/ShowAndProve2.jpg"/>
+                </div>
+                <p class="caption"><a href="https://vtditc.bandcamp.com/album/show-prove-volume-1-raw" target="_blank">
+                    "Show & Prove Volume 1 (raw)" (Fall 2024)</a></p>
+                <h3 class="sub">DesignUp Philanthropy</h3>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Professional/DesignUpBanner.png"/>
+                <p class="caption">Blacksburg Volunteer Rescue Service</p>
+                <div class="image-row">
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Professional/BikeToClass_Green.jpg"/>
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Professional/TwoTiredClub.jpg"/>
+                </div>
+                <p class="caption">Gobbler Gears</p>
+                <h3 class="sub">Women's Ice Hockey at Virginia Tech</h3>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Professional/WIHVT.jpg"
+                style="width: 50%; height: auto;"/>
+                <button class="close-btn"><p class="description">Close</p></button>
                 </div>
             </section>
-        <section id="Assorted">
-            <h2>Assorted Work</h2>
-            <button class="collapsible"><p class="description">Click to View</p></button>
-            <div class="content">
-                <button class="collapsible subtle"><h3 class="sub">Logos + Type</h3></button>
-                <div class="content">
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Logos/MogulMoves (1).jpg" />
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Logos/FilthyCasualY2K.jpg" />
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Logos/StoneParlor.jpeg" />
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Logos/Mango.jpg" />
-                    <button class="close-btn">Close</button><br>
-                    </div>
-                <button class="collapsible subtle"><h3 class="sub">Sports Graphics</h3></button>
-                <div class="content">
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Sports Graphics/BigRungus_01.jpg" />
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Sports Graphics/DAvilla_01.jpg" />
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Sports Graphics/IcemanAscii_05.jpg" />
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Sports Graphics/Lewy_01_v1.jpg" />
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Sports Graphics/Mbokazi_01.jpg" />
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Sports Graphics/Puso_01.jpg" />
-                    <button class="close-btn">Close</button><br>
-                    </div>
-                <button class="collapsible subtle"><h3 class="sub">Misc. Graphics</h3></button>
-                <div class="content">
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Posters/mercury.jpg" />
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Posters/gongon.png" />
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Posters/cdr.jpg" />
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Posters/tv.png" />
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Posters/rgb.png" />
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Posters/aisatsana.png" />
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Posters/jerma.jpg" />
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Posters/arbor.png" />
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Posters/finn.png" />
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Posters/creation.png" />
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Posters/joint.png" />
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Posters/cig.png" />
-                    <button class="close-btn">Close</button><br>
-                    </div>
-                <button class="collapsible subtle"><h3 class="sub">Clothing Mock-Ups</h3></button>
-                <div class="content">
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Clothes/tshirt.png" />
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Clothes/crewneck.jpg" />
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Clothes/hoodie.png" />
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Clothes/rugby.jpg" />
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Clothes/shell.png" />
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Clothes/hockey.png" />
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Clothes/soccer.png" /><br>
-                    <button class="close-btn">Close</button>
-                    </div>
-                </div>
-            </section>  
         </main>
     <footer>
         <nav>
             <p class="contact">TimpactFont@gmail.com</p>
-            <p><a href="#Emerging Tech">Emerging Tech</a></p>
-            <p><a href="#Super Bowl">Super Bowl Design</a></p>
-            <p><a href="#Olympic">Olympic Design</a></p>
-            <p><a href="#Community">Conservatory Branding</a></p>
-            <p><a href="#Toolkit">Health Toolkit</a></p>
-            <p><a href="#Bilingual">Bilingual Type</a></p>
+            <p><a href="#Emerging Tech">Soft Robotics</a></p>
+            <p><a href="#Community">Lily Pad Landing</a></p>
+            <p><a href="#Bilingual">Komorebi Booklet</a></p>
+            <p><a href="#Super Bowl">Super Bowl LXV</a></p>
+            <p><a href="#Olympic">2054 Olympic Games</a></p>
+            <p><a href="#Toolkit">ColonAssist Toolkit</a></p>
             <p><a href="#Professional">Professional Work</a></p>
-            <p><a href="#Assorted">Assorted Work</a></p>
             </nav>
         <div id="datetime">
             <div id="time"></div>
@@ -798,11 +916,25 @@
         var closeButtons = document.querySelectorAll(".close-btn");
         closeButtons.forEach(function (btn) {
             btn.addEventListener("click", function () {
-                var content = this.parentElement;
+                const content = this.closest(".content");
+                if (!content) return;
+
+                const button = content.previousElementSibling;
+
                 content.style.display = "none";
-                var button = content.previousElementSibling;
-                if (button) {
+
+                if (button && button.classList.contains("collapsible")) {
                     button.classList.remove("active");
+                    button.setAttribute("aria-expanded", "false");
+
+                    requestAnimationFrame(function () {
+                        button.scrollIntoView({
+                            behavior: "instant",
+                            block: "center"
+                        });
+
+                        button.focus({ preventScroll: true });
+                    });
                 }
             });
         });
@@ -820,6 +952,92 @@
     }
     setInterval(updateDateTime, 1000);
     updateDateTime();
+    function setImageOrientation() {
+        document.querySelectorAll("img").forEach(function (image) {
+            if (image.closest(".image-row")) return;
+
+            function classifyImage() {
+                image.classList.toggle(
+                    "portrait",
+                    image.naturalHeight > image.naturalWidth
+                );
+            }
+
+            if (image.complete && image.naturalWidth) {
+                classifyImage();
+            } else {
+                image.addEventListener("load", classifyImage, { once: true });
+            }
+        });
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", setImageOrientation);
+    } else {
+        setImageOrientation();
+    }
+    function initializeImageHeights() {
+        document.querySelectorAll(".image-row").forEach(function (row) {
+            const images = Array.from(row.children).filter(
+                element => element.tagName === "IMG"
+            );
+
+            if (images.length !== 2) return;
+
+            function matchHeights() {
+                if (window.innerWidth <= 768) {
+                    row.style.removeProperty("--paired-height");
+                    return;
+                }
+
+                if (!row.clientWidth ||
+                    images.some(image => !image.naturalWidth)) {
+                    return;
+                }
+
+                const gap = parseFloat(getComputedStyle(row).columnGap) || 0;
+                const availableWidth = (row.clientWidth - gap) / 2;
+
+                const heights = images.map(function (image) {
+                    const style = getComputedStyle(image);
+
+                    const horizontal =
+                        parseFloat(style.borderLeftWidth) +
+                        parseFloat(style.borderRightWidth) +
+                        parseFloat(style.paddingLeft) +
+                        parseFloat(style.paddingRight);
+
+                    const vertical =
+                        parseFloat(style.borderTopWidth) +
+                        parseFloat(style.borderBottomWidth) +
+                        parseFloat(style.paddingTop) +
+                        parseFloat(style.paddingBottom);
+
+                    return Math.max(0, availableWidth - horizontal) *
+                        image.naturalHeight / image.naturalWidth + vertical;
+                });
+
+                row.style.setProperty(
+                    "--paired-height",
+                    Math.min(...heights) + "px"
+                );
+            }
+
+            images.forEach(function (image) {
+                image.addEventListener("load", matchHeights);
+            });
+
+            new ResizeObserver(matchHeights).observe(row);
+            window.addEventListener("resize", matchHeights);
+            matchHeights();
+        });
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initializeImageHeights);
+    } else {
+        initializeImageHeights();
+    }
 </script>
 </body>
 </html>
