@@ -50,6 +50,8 @@
 
     a {
         display: block;
+        width: fit-content;
+        max-width: 100%;
         color: black;
         text-decoration-color: black;
         margin: 0 auto 10px;
@@ -75,12 +77,24 @@
     }
 
     img {
-    width: 75%;
-    max-width: 100%;
-    height: auto;
-    margin: 0 auto 10px;
-    border: 4px solid black;
-    box-sizing: border-box;
+        width: 75%;
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto 10px;
+        border: 4px solid black;
+        box-sizing: border-box;
+    }
+
+    img.hero {
+        margin: 0 auto 10px;
+        border: 4px solid black;
+        box-sizing: border-box;
+    }
+    
+    img.hero:hover {
+        cursor: pointer;
+        border: 4px solid blue;
+        box-sizing: border-box;
     }
 
     img.portrait {
@@ -117,12 +131,14 @@
     }
 
     .collapsible {
+        display: block;
+        width: fit-content;
+        max-width: 100%;
         background-color: white;
         font-size: 16px;
         margin-left: auto;
         margin-right: auto;
         color: black;
-        cursor: pointer;
         width: auto;
         border: none;
         text-align: center;
@@ -132,23 +148,31 @@
         text-decoration-color: black;
     }
 
-    .collapsible.subtle {
-        cursor: pointer;
+    .collapsible-subtle {
+        display: block;
+        width: fit-content;
+        max-width: 100%;
+        background-color: white;
+        font-size: 16px;
         margin-left: auto;
         margin-right: auto;
+        color: black;
         width: auto;
         border: none;
         text-align: center;
         outline: none;
         font-family: "Courier New", Courier, monospace;
         text-decoration: underline;
-        color: black;
         text-decoration-color: black;
-        font-size: 16px;
-        font-weight: bold;
     }
 
     .collapsible:hover {
+        color: blue;
+        text-decoration-color: blue;
+    }
+
+    .collapsible-subtle:hover {
+        cursor: pointer;
         color: blue;
         text-decoration-color: blue;
     }
@@ -256,6 +280,10 @@
     }
 
     nav a {
+        display: block;
+        width: auto;
+        text-align: left;
+        margin: 0 0 10px;
         text-decoration: underline;
         color: black;
         text-decoration-color: black;
@@ -326,9 +354,8 @@
             </marquee>
         <section id="Emerging Tech">
             <h2>Soft Robotics Microsite</h2>
-                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Soft Robotics/iMac_Mockup_1.jpg"
-                style="width: 50%; height: auto;"/>
-            <button class="collapsible" type="button"><p class="description">View Design Process</p></button>
+            <button class="collapsible" type="button"><img class="hero" src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Soft Robotics/iMac_Mockup_1.jpg"
+                style="width: 50%; height: auto;"/></button>
             <div class="content">
                 <h3 class="sub">Project Overview</h3>
                 <p class="caption-justify">For this project, my two team members and I were tasked with creating
@@ -392,9 +419,8 @@
             </section>
         <section id="Community">
             <h2>Lily Pad Landing</h2>
-                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Community Branding/MockUp4.jpg"
-                style="width: 50%; height: auto;"/>
-            <button class="collapsible"><p class="description">View Design Process</p></button>
+            <button class="collapsible"><img class="hero" src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Community Branding/MockUp4.jpg"
+                style="width: 50%; height: auto;"/></button>
             <div class="content">
                 <h3 class="sub">Project Overview</h3>
                 <p class="caption-justify">For this project, I was tasked with designing a brand that interacts
@@ -450,14 +476,18 @@
                     logo and brand name and compared how the mascots worked with the typography.
                     These drafts helped me refine the branding direction and bring
                     the separate elements into a more cohesive identity.</p>
-                <h3 class="sub">Final Style Guide</h3>
-                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Community Branding/StyleGuide.gif"/>
+                <h3 class="sub">Final Logos</h3>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Community Branding/Logos.jpg"
+                style="width: 50%; height: auto;"/>
                 <p class="caption-justify">I chose the frog direction because it felt like the strongest
                     fit when used alongside Lily Pad Landing's name and freshwater focus. Although
                     the red-eyed tree frog that inspired my early sketches is not
                     native to the United States, I used it as a starting point
                     for a stylized mascot rather than a representation of a
-                    specific local species. The final style guide brings the
+                    specific local species.</p>
+                <h3 class="sub">Final Style Guide</h3>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Community Branding/StyleGuide.gif"/>
+                <p class="caption-justify">The final style guide brings the
                     mascot, typography, and color palette together into a consistent
                     system. This project helped me understand how research and
                     visual exploration can shape a brand around its purpose
@@ -476,9 +506,8 @@
             </section>
         <section id="Bilingual">
             <h2>Komorebi Booklet</h2>
-                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Bilingual Type/Hero1.png"
-                style="width: 50%; height: auto;"/>
-            <button class="collapsible"><p class="description">View Design Process</p></button>
+            <button class="collapsible"><img class="hero" src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Bilingual Type/Hero1.png"
+                style="width: 50%; height: auto;"/></button>
             <div class="content">
                 <h3 class="sub">Project Overview</h3>
                 <p class="caption-justify">For this project, I was tasked with designing a booklet around
@@ -561,7 +590,7 @@
                 <h3 class="sub">Final Booklet Photos</h3>
                 <div class="image-row">
                     <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Bilingual Type/Hero1.png"/>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Bilingual Type/02_Reg.png"/>
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Bilingual Type/03_Reg.png"/>
                 </div>
                 <div class="image-row">
                 <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Bilingual Type/04_Reg.png"/>
@@ -583,9 +612,8 @@
             </section>
         <section id="Olympic">
             <h2>2054 Olympic Games</h2>
-                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Olympics/Sticker.jpg"
-                style="width: 50%; height: auto;"/>
-            <button class="collapsible"><p class="description">View Design Process</p></button>
+            <button class="collapsible"><img class="hero" src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Olympics/Sticker.jpg"
+                style="width: 50%; height: auto;"/></button>
             <div class="content">
                 <h3 class="sub">Project Overview</h3>
                 <p class="caption-justify">For this project, my partner and I were tasked with designing
@@ -684,9 +712,8 @@
             </section>
         <section id="Super Bowl">
             <h2>Super Bowl LXV</h2>
-                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl/PosterMockup.jpg"
-                style="width: 50%; height: auto;"/>
-            <button class="collapsible"><p class="description">View Design Process</p></button>
+            <button class="collapsible"><img class="hero" src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl/PosterMockup.jpg"
+                style="width: 50%; height: auto;"/></button>
             <div class="content">
                 <h3 class="sub">Project Overview</h3>
                 <p class="caption-justify">For this project, I was tasked with designing graphics for
@@ -742,10 +769,11 @@
                 <h3 class="sub">Final Designs</h3>
                 <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl/SB65Logos.gif" style="width: 50%; height: auto;"/>
                 <p class="caption">Finalized Logo</p>
-                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl/Email.jpg"/>
-                <p class="caption">Ticket Purchase Confirmation Email</p>
-                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl/Ticket_02.png"/>
-                <p class="caption">Digital Ticket</p>
+                <div class="image-row">
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl/Email.jpg"/>
+                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl/Ticket_02.png"/>
+                </div>
+                <p class="caption">Ticket Purchase Confirmation Email and Digital Ticket</p>
                 <div class="image-row">
                     <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl/Bo_Banner.jpg"/>
                     <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Super Bowl/Caleb_Banner.jpg"/>
@@ -787,9 +815,8 @@
             </section>
         <section id="Toolkit">
             <h2>ColonAssist Toolkit</h2>
-                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Toolkit/Hero1.jpg"
-                style="width: 50%; height: auto;"/>
-            <button class="collapsible"><p class="description">View Design Process</p></button>
+            <button class="collapsible"><img class="hero" src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Toolkit/Hero1.jpg"
+                style="width: 50%; height: auto;"/></button>
             <div class="content">
                 <h3 class="sub">Project Overview</h3>
                 <p class="caption-justify">For this project, I was tasked with designing a toolkit
@@ -912,7 +939,7 @@
             </section>
         <section id="Professional">
             <h2>Professional Work</h2>
-            <button class="collapsible"><p class="description">View Content</p></button>
+            <button class="collapsible-subtle" style="cursor: hover;"><p class="description">View Content</p></button>
             <div class="content">
                 <h3 class="sub">VTDITC: Hip Hop Studies at Virginia Tech</h3>
                 <div class="image-row">
@@ -954,7 +981,7 @@
         </footer>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        var coll = document.querySelectorAll(".collapsible");
+        var coll = document.querySelectorAll(".collapsible, .collapsible-subtle");
 
         coll.forEach(function (button) {
             button.addEventListener("click", function () {
