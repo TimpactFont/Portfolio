@@ -302,6 +302,26 @@
         font-weight: bold;
     }
 
+    #hero-tooltip {
+        display: none;
+        position: fixed;
+        pointer-events: none;
+        z-index: 9999;
+
+        padding: 6px 10px;
+        background: var(--page-background, white);
+        color: var(--page-text, black);
+        border: 1px solid var(--page-text, black);
+
+        font-family: "Courier New", Courier, monospace;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    #hero-tooltip.visible {
+        display: block;
+    }
+
     @media (max-width: 768px) {
         body {
             padding: 10px 20px 20px;
@@ -345,6 +365,7 @@
     <header>
     <h1>TIMPACTFONT&copy;</h1>
         </header>
+    <div id="hero-tooltip" aria-hidden="true">View Design Process</div>
     <main>
         <marquee direction="down" scrollamount="18" style="background-color: blue; color: white; position: fixed; right: 0; top: 0px; height: 100%; width: 30px;">
             <p class="katakana">ティンパクトフォント&copy;</p>
@@ -965,10 +986,10 @@
                 </div>
                 <p class="caption">Gobbler Gears</p>
                 <h3 class="sub">Women's Ice Hockey at Virginia Tech</h3>
-                <div class="image-row">
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Professional/WIHVT.jpg"/>
-                    <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Professional/WIHVT2.jpg"/>
-                </div>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Professional/WIHVT.jpg"
+                style="width: 50%; height: auto;"/>
+                <img src="https://raw.githubusercontent.com/TimpactFont/portfolio/main/Professional/WIHVT2.jpg"
+                style="width: 50%; height: auto;"/>
                 <button class="close-btn"><p class="description">Close</p></button>
                 </div>
             </section>
@@ -1126,6 +1147,68 @@
     } else {
         initializeImageHeights();
     }
+    (() => {
+        const tooltip = document.getElementById("hero-tooltip");
+
+        document.querySelectorAll("img.hero").forEach(image => {
+            image.addEventListener("pointerenter", event => {
+                if (event.pointerType === "touch") return;
+
+                tooltip.classList.add("visible");
+                moveTooltip(event);
+            });
+
+            image.addEventListener("pointermove", moveTooltip);
+
+            image.addEventListener("pointerleave", hideTooltip);
+            image.addEventListener("pointerdown", hideTooltip);
+            image.addEventListener("pointercancel", hideTooltip);
+        });
+
+        function moveTooltip(event) {
+            const gap = 14;
+            const edge = 8;
+            const rect = tooltip.getBoundingClientRect();
+
+            let x = event.clientX + gap;
+            let y = event.clientY + gap;
+
+            if (x + rect.width > window.innerWidth - edge) {
+                x = event.clientX - rect.width - gap;
+            }
+
+            if (y + rect.height > window.innerHeight - edge) {
+                y = event.clientY - rect.height - gap;
+            }
+
+            tooltip.style.left = Math.max(edge, x) + "px";
+            tooltip.style.top = Math.max(edge, y) + "px";
+        }
+
+        function hideTooltip() {
+            tooltip.classList.remove("visible");
+        }
+
+        let cursorX = 0;
+        let cursorY = 0;
+
+        window.addEventListener("pointermove", event => {
+            cursorX = event.clientX;
+            cursorY = event.clientY;
+        }, { passive: true });
+
+        window.addEventListener("scroll", () => {
+            const hoveredElement = document.elementFromPoint(cursorX, cursorY);
+
+            if (hoveredElement?.matches("img.hero")) {
+                tooltip.classList.add("visible");
+                moveTooltip({ clientX: cursorX, clientY: cursorY });
+            } else {
+                hideTooltip();
+            }
+        }, { passive: true });
+        window.addEventListener("blur", hideTooltip);
+    })();
 </script>
 </body>
 </html>
